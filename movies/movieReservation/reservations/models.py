@@ -19,11 +19,10 @@ class Reservation(models.Model):
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE, help_text="The user who made the reservation.")
     function = models.ForeignKey('Function', on_delete=models.CASCADE, related_name='reservations', help_text="The function associated with the reservation.")
-    movie_name = models.CharField(max_length=100, help_text="The name of the movie reserved.")
     reservation_date = models.DateTimeField(auto_now_add=True, help_text="The date and time when the reservation was made.")
 
     def __str__(self):          
-        return f"Reservation {self.id} by {self.user.username} for {self.movie_name} on {self.function.date_time}"
+        return f"Reservation {self.id} by {self.user.username} for {function.movie} on {self.function.date_time}"
 
 class Seat(models.Model):
     """
