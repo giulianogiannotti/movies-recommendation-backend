@@ -4,7 +4,7 @@ from .models import Reservation, Seat, ReservationSeat, Function, Auditorium, Mo
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'role']        
+        fields = ['id', 'username', 'email', 'role']       
 
 class ReservationSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
